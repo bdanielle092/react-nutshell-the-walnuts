@@ -1,6 +1,6 @@
 import React from "react"
 
-const eventCard = () => {
+const EventCard = () => {
     return (
         <div calssName="card">
             <div className="card-content">
@@ -11,3 +11,4 @@ const eventCard = () => {
         </div>
     )
 }
+export default EventCard
