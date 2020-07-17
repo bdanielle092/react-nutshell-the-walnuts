@@ -5,7 +5,9 @@ import "./NavBar.css";
 const NavBar = () => {
     return (
         <header>
-          <h1 className="site-title"> Nutshell</h1>
+          <h1 className="site-title">
+          <img src={require(`./NutshellLogo.png`)} alt="Nushell Logo" />
+          </h1>
              <nav>
             <ul className="container">
               <li>
