@@ -1,5 +1,5 @@
-import {Route} from "react-router-dom"
-import React from "react"
+import {Route} from "react-router-dom";
+import React from "react";
 import Home from "./home/Home";
 import NewsCard from "./news/NewsCard";
 import EventCard from "./events/EventCard";
