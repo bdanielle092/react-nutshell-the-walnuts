@@ -7,6 +7,7 @@ const EventCard = () => {
                 <h3>
     Event: <span className="card-eventName"></span>
                 </h3>
+                
             </div>
         </div>
     )
