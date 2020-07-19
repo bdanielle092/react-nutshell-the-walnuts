@@ -1,0 +1,15 @@
+@import url("https://fonts.google.com/specimen/Roboto+Condensed");
+body, 
+button,
+input,
+select,
+textarea {
+  color: black;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}

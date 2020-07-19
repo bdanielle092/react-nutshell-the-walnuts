@@ -1,7 +1,7 @@
 import {Route} from "react-router-dom";
 import React from "react";
 import Home from "./home/Home";
-import NewsCard from "./news/NewsCard";
+import NewsList from "./news/NewsList";
 import EventCard from "./events/EventCard";
 import MessageCard from "./messages/MessageCard";
 import TaskCard from "./tasks/TaskCard";
@@ -21,7 +21,7 @@ const ApplicationViews = () => {
             <Route
            path="/news"
             render={props => {
-            return <NewsCard />;
+            return <NewsList />;
              }}
              />
             <Route
