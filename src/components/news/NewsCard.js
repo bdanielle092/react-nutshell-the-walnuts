@@ -1,4 +1,5 @@
-import React from "react"
+import React from "react";
+import "./News.css"
 
 const NewsCard = props => {
     return (
@@ -16,6 +17,9 @@ const NewsCard = props => {
                 <p>
                     URL: {props.news.url}
                 </p>
+                <button type="button" onClick={() => props.deleteNews(props.news.id)}>
+                    Delete
+                </button>
             </div>
         </div>
     );

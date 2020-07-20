@@ -3,11 +3,16 @@ import NewsCard from './NewsCard';
 import NewsManager from '../../modules/NewsManager';
 
 const NewsList = () => {
-    const [news, SetNews] = useState([]);
+    const [news, setNews] = useState([]);
     const getNews = () => {
         return NewsManager.getAll().then(newsFromAPI => {
-            SetNews(newsFromAPI)
+            setNews(newsFromAPI)
         });
+    };
+
+    const deleteNews = id => {
+        NewsManager.delete(id)
+        .then(() => NewsManager.getAll().then(setNews));
     };
 
     useEffect(() => {
@@ -17,7 +22,10 @@ const NewsList = () => {
     return (
         <div className="news-cards">
             {news.map(news =>
-            <NewsCard key={news.id} news={news}/>
+            <NewsCard 
+            key={news.id} 
+            news={news}
+            deleteNews={deleteNews}/>
             )}
         </div>
     );
