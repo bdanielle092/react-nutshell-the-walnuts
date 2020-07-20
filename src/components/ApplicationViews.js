@@ -1,12 +1,13 @@
-import {Route} from "react-router-dom";
+import {Route,} from "react-router-dom";
 import React from "react";
 import Home from "./home/Home";
 import NewsList from "./news/NewsList";
 import NewsDetail from "./news/NewsDetail";
 import EventCard from "./events/EventCard";
 import MessageCard from "./messages/MessageCard";
-import TaskCard from "./tasks/TaskCard";
 import FriendCard from "./friends/FriendCard";
+import Login from "./login/Login"
+import TaskList from "./tasks/TaskList";
 
 const ApplicationViews = () => {
     return (
@@ -17,8 +18,12 @@ const ApplicationViews = () => {
              render= {props => {
              return <Home />
              }}
-             
              />
+             {/* <Route 
+             path="/login" 
+             render={props => {
+            return <Login {...props} />
+            }} /> */}
             <Route
            path="/news"
             render={props => {
@@ -41,12 +46,9 @@ const ApplicationViews = () => {
             return <MessageCard />;
              }}
             />
-            <Route
-             path="/tasks"
-            render={props => {
-            return <TaskCard />;
-             }}
-             />
+            <Route exact path="/tasks" render={props => {
+                return <TaskList {...props}  />;
+             }} />
              <Route
             path="/friends"
             render={props => {
