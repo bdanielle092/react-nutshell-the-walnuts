@@ -16,7 +16,9 @@ const NewsList = () => {
 
     return (
         <div className="news-cards">
-            {news.map(news => <NewsCard />)}
+            {news.map(news =>
+            <NewsCard key={news.id} news={news}/>
+            )}
         </div>
     );
 };
