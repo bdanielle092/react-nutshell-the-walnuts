@@ -7,6 +7,7 @@ import TaskCard from "./tasks/TaskCard";
 import FriendCard from "./friends/FriendCard";
 import EventList from "./events/EventList";
 import EventDetail from "./events/EventDetail";
+import EventForm from "./events/EventForm";
 
 
 const ApplicationViews = () => {
@@ -31,13 +32,13 @@ const ApplicationViews = () => {
             <Route exact path="/events" render={props => {
                 return <EventList {...props}/>
             }} />
-           <Route path="/events/:eventId(\d+)" render={(props) => {
+           <Route  path="/events/:eventId(\d+)" render={(props) => {
                 return <EventDetail eventId={parseInt(props.match.params.eventId)}
                 {...props} />
             }} />
-           {/* <Route path="/events" render={(props) => {
+           <Route path="/events" render={(props) => {
                 return <EventForm {...props} />
-           }} /> */}
+           }} />
             <Route
             path="/messages"
             render={props => {

@@ -4,6 +4,7 @@ import EventManager from "../../modules/EventsManager";
 
 const EventDetail = props => {
     const [event, setEvent] = useState({ event:"", date: "", location: "", description: ""});
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         EventManager.get(props.eventId)
@@ -14,6 +15,7 @@ const EventDetail = props => {
                 location: event.location,
                 description: event.description
             });
+            setIsLoading(false)
         });
     }, [props.eventId]);
 
@@ -25,7 +27,7 @@ const EventDetail = props => {
                 </picture>
                 <h3>Event: <span style={{ color: 'darkslategrey' }}>{event.event}</span></h3>
                 <p>Date: {event.date}</p>
-                <p>Location: {event.loaction}</p>
+                <p>Location: {event.location}</p>
                 <p>Description: {event.description}</p>
             </div>
         </div>
