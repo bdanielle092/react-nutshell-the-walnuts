@@ -39,3 +39,10 @@ small {
     color: navy;
   }
   
+ .site-title {
+  display: block;
+  border: 0;
+  width: 15%;
+  height: auto;
+  padding-left: 14em;
+}
