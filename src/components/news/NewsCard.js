@@ -1,5 +1,6 @@
+import { Link } from "react-router-dom";
 import React from "react";
-import "./News.css"
+import "./News.css";
 
 const NewsCard = props => {
     return (
@@ -17,6 +18,9 @@ const NewsCard = props => {
                 <p>
                     URL: {props.news.url}
                 </p>
+                <Link to={'/news/${props.news.id}'}>
+                    <button>Details</button>
+                </Link>
                 <button type="button" onClick={() => props.deleteNews(props.news.id)}>
                     Delete
                 </button>
@@ -24,4 +28,4 @@ const NewsCard = props => {
         </div>
     );
 }
-export default NewsCard
+export default NewsCard;
