@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react'; 
-import NewsManager from '../../modules/NewsManager.js';
+import NewsManager from '../../modules/NewsManager';
 import './NewsDetail.css';
 
 const NewsDetail = props => {
-    const [news, setNews] = useState({ title: "", description: "" });
+    const [news, setNews] = useState({ title: "", description: "", url: "" });
 
     useEffect(() => {
         NewsManager.get(props.newsId)
         .then(news => {
             setNews({
-                Title: news.title,
-                Description: news.description,
-                URL: news.url
+                title: news.title,
+                description: news.description,
+                url: news.url
             });
         });
     }, [props.newsId]);

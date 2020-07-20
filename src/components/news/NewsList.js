@@ -25,7 +25,7 @@ const NewsList = () => {
             <NewsCard 
             key={news.id} 
             news={news}
-            deleteNews={deleteNews}/>
+            deleteNews={deleteNews} />
             )}
         </div>
     );
