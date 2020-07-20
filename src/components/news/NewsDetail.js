@@ -4,6 +4,13 @@ import './NewsDetail.css';
 
 const NewsDetail = props => {
     const [news, setNews] = useState({ title: "", description: "", url: "" });
+    const [isLoading, setIsLoading] = useState(true);
+    const handleDelete = () => {
+        setIsLoading(true);
+        NewsManager.delete(props.newsId).then(() =>
+        props.history.push("/news")
+        );
+    };
 
     useEffect(() => {
         NewsManager.get(props.newsId)
@@ -13,6 +20,7 @@ const NewsDetail = props => {
                 description: news.description,
                 url: news.url
             });
+            setIsLoading(false);
         });
     }, [props.newsId]);
     return (
@@ -30,9 +38,12 @@ const NewsDetail = props => {
                 <p>
                     URL: {news.url}
                 </p>
+                <button type="button" disabled={isLoading} onClick={handleDelete}>
+                    Delete
+                </button>
             </div>
         </div>
     );
-}
+};
 
 export default NewsDetail;

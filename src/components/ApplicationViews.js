@@ -24,15 +24,18 @@ const ApplicationViews = () => {
              render={props => {
             return <Login {...props} />
             }} /> */}
-            <Route exact path="/news"
+            <Route exact 
+            path="/news"
             render={props => {
             return <NewsList />;
              }}
              />
              <Route
-             path="/news/:newsId(\d+)" render={(props) => {
-                 return <NewsDetail newsId={parseInt(props.match.params.newsId)} 
-                 {...props}/>
+             path="/news/:newsId(\d+)" 
+             render={(props) => {
+                 return <NewsDetail 
+                 newsId={parseInt(props.match.params.newsId)} 
+                 {...props} />;
              }} />
             <Route
              path="/events"
