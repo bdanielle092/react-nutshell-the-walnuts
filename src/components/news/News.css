@@ -16,7 +16,7 @@ textarea {
 
 .news-cards img {
   display: block;
-  width: 17%;
+  width: 13%;
   height: auto;
 }
 
@@ -24,7 +24,6 @@ textarea {
   background-color: red;
   text-align: center;
   display: inline-block;
-
   width: 10%;
 }
 
