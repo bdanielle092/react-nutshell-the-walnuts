@@ -10,7 +10,8 @@ textarea {
 
 .news-cards {
   border-radius: 20px;
-  border-color: orange;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  margin-bottom: 5px;
 }
 
 .news-cards img {
@@ -19,3 +20,15 @@ textarea {
   height: auto;
 }
 
+.news-cards button {
+  background-color: red;
+  text-align: center;
+  display: inline-block;
+
+  width: 10%;
+}
+
+.news-cards button:hover {
+  background-color: grey;
+  border-color: red;
+}
