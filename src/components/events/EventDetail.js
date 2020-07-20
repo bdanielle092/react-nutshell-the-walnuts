@@ -4,7 +4,7 @@ import EventManager from "../../modules/EventsManager";
 
 const EventDetail = props => {
     const [event, setEvent] = useState({ event:"", date: "", location: "", description: ""});
-    const [isLoading, setIsLoading] = useState(true)
+    
 
     useEffect(() => {
         EventManager.get(props.eventId)
@@ -15,7 +15,7 @@ const EventDetail = props => {
                 location: event.location,
                 description: event.description
             });
-            setIsLoading(false)
+           
         });
     }, [props.eventId]);
 

@@ -3,13 +3,14 @@ import EventManager from "../../modules/EventsManager";
 import "./EventForm.css"
 
 const EventForm = props => {
-    const[event, setEvent] = useState({name: "", date: "", location: "", description: ""});
+    const[event, setEvent] = useState({event: "", date: "", location: "", description: ""});
     const[isLoading, setIsLoading] = useState(false);
 
     const handleFieldChange = evt => {
         const stateToChange = {...event};
         stateToChange[evt.target.id] = evt.target.value;
         setEvent(stateToChange);
+        
     };
     const constructNewEvent = evt => {
         evt.preventDefault();
@@ -17,7 +18,9 @@ const EventForm = props => {
            window.alert("Please fill out input fields");
     } else {
         setIsLoading(true);
+
         EventManager.post(event)
+        
         .then(() => props.history.push("/events"));
     }
 };
@@ -28,6 +31,7 @@ return (
                 <div className="formgrid">
                     < input
                      type="text"
+                     name="event"
                      required
                      onChange={handleFieldChange}
                      id="event"
@@ -36,6 +40,7 @@ return (
                      <label htmlFor="event">Event</label>
                      <input 
                       type="text"
+                      name="date"
                       required
                       onChange={handleFieldChange}
                       id="date"
@@ -44,6 +49,7 @@ return (
                       <label htmlFor="date">Date</label>
                       <input 
                       type="text"
+                      name="location"
                       required
                       onChange={handleFieldChange}
                       id="location"
@@ -52,6 +58,7 @@ return (
                       <label htmlFor="location">Location</label>
                       <input 
                       type="text"
+                      name="description"
                       required
                       onChange={handleFieldChange}
                       id="description"
@@ -62,7 +69,7 @@ return (
                     <div className="alignRight">
                         <button 
                         type="button"
-                        disable={isLoading}
+                        disabled={isLoading}
                         onClick={constructNewEvent}
                         >Submit</button>
                 </div>
