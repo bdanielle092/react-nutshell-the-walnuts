@@ -2,7 +2,7 @@ import React from "react"
 
 const NewsCard = () => {
     return (
-        <div className="card">
+        <div className="news-cards">
             <div className="card-content">
                 <picture>
                     <img src={require("./newsicon.png")} alt="News Icon" />
