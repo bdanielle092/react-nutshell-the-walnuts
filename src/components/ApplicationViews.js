@@ -24,8 +24,7 @@ const ApplicationViews = () => {
              render={props => {
             return <Login {...props} />
             }} /> */}
-            <Route
-           path="/news"
+            <Route exact path="/news"
             render={props => {
             return <NewsList />;
              }}
