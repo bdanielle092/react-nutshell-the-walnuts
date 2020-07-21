@@ -26,6 +26,14 @@ const TaskList = (props) => {
 
   return (
     <div className="container-cards">
+        <>
+      <section className="section-content">
+        <button type="button" className="btn"
+        onClick={() => {props.history.push("/tasks/new")}}>
+        Admit Animal
+        </button>
+      </section>
+</>
       {tasks.map(task => <TaskCard 
        key={task.id} 
        task={task}

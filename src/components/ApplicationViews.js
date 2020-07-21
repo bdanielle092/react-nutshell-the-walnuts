@@ -9,6 +9,7 @@ import FriendCard from "./friends/FriendCard";
 import Login from "./login/Login"
 import TaskCard from "./tasks/TaskCard"
 import TaskList from "./tasks/TaskList";
+import TaskForm from "./tasks/TaskForm"
 import TaskEditForm from "./tasks/TaskEditForm"
 
 
@@ -57,6 +58,10 @@ const ApplicationViews = () => {
 
             <Route path="/tasks/:taskId(\d+)/edit" render={props => {
                 return <TaskEditForm {...props} />
+            }} />
+            
+            <Route path="/tasks/new" render={(props) => {
+                return <TaskForm {...props} />
             }} />
 
             <Route exact path="/tasks" render={props => {
