@@ -3,6 +3,7 @@ import React from "react";
 import Home from "./home/Home";
 import NewsList from "./news/NewsList";
 import NewsDetail from "./news/NewsDetail";
+import NewsForm from './news/NewsForm';
 import EventCard from "./events/EventCard";
 import MessageCard from "./messages/MessageCard";
 import FriendCard from "./friends/FriendCard";
@@ -12,8 +13,7 @@ import TaskList from "./tasks/TaskList";
 const ApplicationViews = () => {
     return (
         <React.Fragment>
-            <Route
-             exact
+            <Route exact
              path="/"
              render= {props => {
              return <Home />
@@ -24,14 +24,15 @@ const ApplicationViews = () => {
              render={props => {
             return <Login {...props} />
             }} /> */}
-            <Route exact 
-            path="/news"
-            render={props => {
-            return <NewsList />;
-             }}
-             />
-             <Route
-             path="/news/:newsId(\d+)" 
+            <Route exact path="/news"
+            render={(props) => {
+            return <NewsList {...props} />;
+             }} />
+             <Route path="/news/new" 
+             render={(props) => {
+                return <NewsForm {...props} />
+             }} />
+             <Route path="/news/:newsId(\d+)" 
              render={(props) => {
                  return <NewsDetail 
                  newsId={parseInt(props.match.params.newsId)} 
