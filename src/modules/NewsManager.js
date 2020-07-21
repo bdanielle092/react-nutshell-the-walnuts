@@ -7,6 +7,15 @@ export default {
     getAll() {
         return fetch(`${remoteURL}/news`).then(result => result.json())
     },
+    post(newNews) {
+        return fetch (`${remoteURL}/news`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            }, 
+            body: JSON.stringify(newNews)
+        }).then(data => data.json())
+    },
     delete(id) {
         return fetch(`${remoteURL}/news/${id}`, {
             method: "DELETE"
