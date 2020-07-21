@@ -16,7 +16,7 @@ const NewsEditForm = props => {
         evt.preventDefault()
         setIsLoading(true);
 
-            const editNews = {
+            const editedNews = {
                 id: props.match.params.newsId,
                 title: news.title,
                 description: news.description,

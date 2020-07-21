@@ -1,15 +1,21 @@
 import {Route,} from "react-router-dom";
 import React from "react";
 import Home from "./home/Home";
+import MessageList from "./messages/MessageList";
+import MessageEditForm from "./messages/MessageEditForm";
+import MessageForm from "./messages/MessageForm";
 import NewsList from "./news/NewsList";
 import NewsDetail from "./news/NewsDetail";
 import NewsForm from './news/NewsForm';
 import NewsEditFrom from './news/NewsEditForm';
-import EventCard from "./events/EventCard";
-import MessageCard from "./messages/MessageCard";
-import FriendCard from "./friends/FriendCard";
-import Login from "./login/Login";
+import EventList from "./events/EventList";
+import EventDetail from "./events/EventDetail";
+import EventForm from "./events/EventForm";
+import EventEditForm from "./events/EventEditForm";
+import Login from "./login/Login"
 import TaskList from "./tasks/TaskList";
+import FriendCard from "./friends/FriendCard";
+
 
 const ApplicationViews = () => {
     return (
@@ -27,53 +33,63 @@ const ApplicationViews = () => {
             }} /> */}
 
 
-            <Route exact path="/news" render={props => {
-                if (isAuthenticated()) {
-                    return <NewsList {...props} />
-                } else {
-                    return <Redirect to="/login" />
-                }
-             }} />
-
-            <Route path="/news/new" 
-             render={(props) => {
+         
+             {/* Event */}
+        
+            <Route exact path="/events" render={props => {
+                return <EventList {...props}/>
+            }} />
+           <Route exact path="/events/:eventId(\d+)" render={(props) => {
+                return <EventDetail eventId={parseInt(props.match.params.eventId)}
+                {...props} />
+            }} />
+           <Route exact path="/events/new" render={(props) => {
+                return <EventForm {...props} />
+           }} />
+           <Route exact path="/events/:eventId(\d+)/edit" render={(props) => {
+               return <EventEditForm {...props} />
+           }}/>
+              {/* Message */}
+             
+           <Route exact path="/messages" render={props => {
+                return <MessageList {...props}/>
+            }} />
+            <Route exact path="/messages/new" render={(props) => {
+            return <MessageForm {...props} />
+            }} />
+            <Route exact path="/messages/:messageId(\d+)/edit" render={(props) => {
+                return <MessageEditForm {...props} />
+            }}/>
+            
+            {/* News */}
+            <Route exact 
+            path="/news"
+            render={props => {
+            return <NewsList />;
+                }}
+                />
+                <Route
+                path="/news/:newsId(\d+)" 
+                render={(props) => {
                 return <NewsForm {...props} />
-             }} />
+                }} />
 
             <Route path="/news/:newsId(\d+)edit" render={props => {
-                 if (isAuthenticated()) {
-                     return <NewsEditFrom {...props} />
-                 } else {
-                     return <Redirect to="/login" />
-                 }
-                 }} />
-             }}
+                        return <NewsEditFrom {...props} />
+                    }} />
+                }}
 
             <Route exact path="/news/:newsId(\d+)" render={props => {
-                 if (isAuthenticated()) {
-                     return <NewsDetail newsId={parseInt(props.match.params.newsId)} {...props} />
-                 } else {
-                     return <Redirect to="/login" />
-                    } 
-                 }} />
+                        return <NewsDetail newsId={parseInt(props.match.params.newsId)} {...props} />
+                    }} />
 
 
 
-            <Route
-             path="/events"
-            render={props => {
-            return <EventCard />;
-            }}
-            />
-            <Route
-            path="/messages"
-            render={props => {
-            return <MessageCard />;
-             }}
-            />
+             {/* tasks */}
             <Route exact path="/tasks" render={props => {
                 return <TaskList {...props}  />;
              }} />
+             {/* friends */}
              <Route
             path="/friends"
             render={props => {
