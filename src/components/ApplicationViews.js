@@ -6,13 +6,15 @@ import MessageEditForm from "./messages/MessageEditForm";
 import MessageForm from "./messages/MessageForm";
 import NewsList from "./news/NewsList";
 import NewsDetail from "./news/NewsDetail";
-
 import EventList from "./events/EventList";
 import EventDetail from "./events/EventDetail";
 import EventForm from "./events/EventForm";
 import EventEditForm from "./events/EventEditForm";
 import Login from "./login/Login"
+import TaskCard from "./tasks/TaskCard"
 import TaskList from "./tasks/TaskList";
+import TaskForm from "./tasks/TaskForm"
+import TaskEditForm from "./tasks/TaskEditForm"
 import FriendCard from "./friends/FriendCard";
 
 
@@ -73,11 +75,21 @@ const ApplicationViews = () => {
                  newsId={parseInt(props.match.params.newsId)} 
                  {...props} />;
              }} />
-             {/* tasks */}
+           
+
+            {/* Tasks */}
+
+            <Route path="/tasks/:taskId(\d+)/edit" render={props => {
+                return <TaskEditForm {...props} />
+            }} />
+            
+            <Route path="/tasks/new" render={(props) => {
+                return <TaskForm {...props} />
+            }} />
+
             <Route exact path="/tasks" render={props => {
-                return <TaskList {...props}  />;
-             }} />
-             {/* friends */}
+                return <TaskList {...props} />
+            }} />
              <Route
             path="/friends"
             render={props => {

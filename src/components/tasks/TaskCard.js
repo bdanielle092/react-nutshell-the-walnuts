@@ -1,6 +1,5 @@
 // Author Nicholas Glover
 import React from "react"
-import { link } from "react-router-dom"
 
 const TaskCard = props => {
     return (
@@ -9,8 +8,12 @@ const TaskCard = props => {
             <div>
                 <li>{props.task.task}</li>
                 <li>{props.task.date}</li>
-                <li>{props.task.isComplete ? "Complete" : "Unfinished"}</li>
+                <li>{props.task.isComplete ? "Complete" : "Unfinished"} <input type="checkbox" name="isComplete" value="Bike"></input></li>
             </div>
+            <button type="button"
+                onClick={() => props.history.push(`/tasks/${props.task.id}/edit`)}>
+                Edit
+            </button>
             <button type="button" onClick={() => props.deleteTask(props.task.id)}>Delete</button>
         </div>
     )
