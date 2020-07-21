@@ -57,7 +57,7 @@ const TaskEditForm = props => {
               id="date"
               value={task.date}
             />
-            <label htmlFor="date">Breed</label>
+            <label htmlFor="date">Date</label>
           </div>
           <div className="alignRight">
             <button
