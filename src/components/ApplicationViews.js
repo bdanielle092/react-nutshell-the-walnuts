@@ -1,7 +1,8 @@
 import {Route,} from "react-router-dom";
 import React from "react";
 import Home from "./home/Home";
-import NewsCard from "./news/NewsCard";
+import NewsList from "./news/NewsList";
+import NewsDetail from "./news/NewsDetail";
 import EventCard from "./events/EventCard";
 import MessageCard from "./messages/MessageCard";
 import FriendCard from "./friends/FriendCard";
@@ -23,12 +24,19 @@ const ApplicationViews = () => {
              render={props => {
             return <Login {...props} />
             }} /> */}
-            <Route
-           path="/news"
+            <Route exact 
+            path="/news"
             render={props => {
-            return <NewsCard />;
+            return <NewsList />;
              }}
              />
+             <Route
+             path="/news/:newsId(\d+)" 
+             render={(props) => {
+                 return <NewsDetail 
+                 newsId={parseInt(props.match.params.newsId)} 
+                 {...props} />;
+             }} />
             <Route
              path="/events"
             render={props => {
@@ -54,4 +62,4 @@ const ApplicationViews = () => {
     )
 }
 
-export default ApplicationViews
+export default ApplicationViews;
