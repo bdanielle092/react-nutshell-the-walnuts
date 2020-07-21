@@ -7,7 +7,10 @@ import EventCard from "./events/EventCard";
 import MessageCard from "./messages/MessageCard";
 import FriendCard from "./friends/FriendCard";
 import Login from "./login/Login"
+import TaskCard from "./tasks/TaskCard"
 import TaskList from "./tasks/TaskList";
+import TaskEditForm from "./tasks/TaskEditForm"
+
 
 const ApplicationViews = () => {
     return (
@@ -48,10 +51,17 @@ const ApplicationViews = () => {
             render={props => {
             return <MessageCard />;
              }}
-            />
+            /> 
+
+            {/* Tasks */}
+
+            <Route path="/tasks/:taskId(\d+)/edit" render={props => {
+                return <TaskEditForm {...props} />
+            }} />
+
             <Route exact path="/tasks" render={props => {
-                return <TaskList {...props}  />;
-             }} />
+                return <TaskList {...props} />
+            }} />
              <Route
             path="/friends"
             render={props => {
