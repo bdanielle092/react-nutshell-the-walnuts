@@ -12,6 +12,7 @@ const EventCard = props => {
         </picture>
                 <h3>
     Event: <span className="card-eventName">{props.event.event}</span>
+            <p>{props.event.date}</p>
                 </h3>
                 <Link to={`/events/${props.event.id}`}>
                     <button>More Info</button>

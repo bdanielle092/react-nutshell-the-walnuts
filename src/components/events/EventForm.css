@@ -1,3 +1,4 @@
+/* color and szie of the box  */
 fieldset {
     max-width: 40em;
     padding: 4px;
@@ -7,7 +8,7 @@ fieldset {
     border-radius: 5px;
     background: whitesmoke;
 }
-
+/* controls the spacing of the input fields */
 fieldset input, fieldset button, fieldset select{
     box-sizing: border-box;
     padding: .2em .4em;
@@ -15,7 +16,7 @@ fieldset input, fieldset button, fieldset select{
     outline: none;
     box-shadow: none;
 }
-
+/* the submit button */
 fieldset button {
     max-width: 9em;
     padding: .5em;
@@ -31,34 +32,32 @@ fieldset button {
     width: 100%;
     cursor: pointer;
 }
-
+/* postion the text to be next to the boxes  */
 fieldset label {
     box-sizing: border-box;
     user-select: none;
     cursor: pointer;
     text-align: right;
 }
-fieldset input:focus + label {
-    color: #933;
-}
-
+/* has the boxes go in columns and spaces them out */
 fieldset .formgrid {
     display: grid;
     grid-template-columns: 1fr 1em 2fr;
     grid-gap: .3em .6em;
     grid-auto-flow: dense;
-    align-items: center;
+    align-items: left;
 }
-
+/* postions the boxes */
 fieldset input, fieldset button, fieldset select {
     grid-column: 2 /4;
     width: auto;
     margin: 0
 }
-
+/* put sumbit button to the right  */
 fieldset .alignRight {
     text-align: right;
 }
+/* sumbit button turn blue when you hover over it  */
 fieldset button:hover {
     background-color: navy;
   }
