@@ -25,7 +25,7 @@ const NewsEditForm = props => {
              
             NewsManager.update(editedNews)
             .then(() => props.history.push("/news"))
-    }
+    };
 
     useEffect(() => {
         NewsManager.get(props.match.params.newsId)
@@ -33,13 +33,13 @@ const NewsEditForm = props => {
             setNews(news);
             setIsLoading(false);
         });
-    }, []);
+    }, [props.match.params.newsId]);
 
     return (
         <>
             <form>
                 <fieldset>
-                    <div classNames="formgrid">
+                    <div className="formgrid">
                         <input
                             type="text"
                             required
@@ -69,10 +69,11 @@ const NewsEditForm = props => {
                             value={news.url}
                         />
                         <label htmlFor="url">URL</label>
-
+                        </div>
+                        <div className="alignRight">
                         <button
                             type="button" disabled={isLoading}
-                            onCick={updateExistingNews}
+                            onClick={updateExistingNews}
                             className="btn btn-primary"
                         >Submit Changes</button>
                     </div>

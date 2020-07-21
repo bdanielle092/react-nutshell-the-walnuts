@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import NewsManager from '../../modules/NewsManager';
 import NewsCard from './NewsCard';
+import NewsManager from '../../modules/NewsManager';
+
 
 const NewsList = (props) => {
     const [news, setNews] = useState([]);
+
     const getNews = () => {
         return NewsManager.getAll().then(newsFromAPI => {
             setNews(newsFromAPI)
@@ -25,7 +27,7 @@ const NewsList = (props) => {
         <button type="button"
             className="btn"
             onClick={() => {props.history.push("/news/new")}}>
-            Create News Story
+            Create News Article
         </button>
         </section>
         <div className="news-cards">

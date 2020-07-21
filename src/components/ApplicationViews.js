@@ -56,7 +56,7 @@ const ApplicationViews = () => {
             render={(props) => {
             return <NewsList {...props} />;
              }} />
-             <Route path="/news/new" 
+             <Route exact path="/news/new" 
              render={(props) => {
                 return <NewsForm {...props} />
              }} />
@@ -66,7 +66,7 @@ const ApplicationViews = () => {
                  newsId={parseInt(props.match.params.newsId)} 
                  {...props} />;
              }} />
-              <Route exact path="/newss/:news(\d+)/edit" 
+              <Route exact path="/news/:news(\d+)/edit" 
               render={(props) => {
                 return <NewsEditForm {...props} />
             }}/>
