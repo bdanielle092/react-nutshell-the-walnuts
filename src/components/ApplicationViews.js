@@ -2,11 +2,11 @@ import {Route,} from "react-router-dom";
 import React from "react";
 import Home from "./home/Home";
 import MessageList from "./messages/MessageList";
-import MessageCard from "./messages/MessageCard";
+import MessageEditForm from "./messages/MessageEditForm";
 import MessageForm from "./messages/MessageForm";
 import NewsList from "./news/NewsList";
 import NewsDetail from "./news/NewsDetail";
-import EventCard from "./events/EventCard";
+
 import EventList from "./events/EventList";
 import EventDetail from "./events/EventDetail";
 import EventForm from "./events/EventForm";
@@ -33,12 +33,7 @@ const ApplicationViews = () => {
             }} /> */}
          
              {/* Event */}
-             <Route
-             path="/events"
-            render={props => {
-            return <EventCard />;
-            }}
-            />
+        
             <Route exact path="/events" render={props => {
                 return <EventList {...props}/>
             }} />
@@ -49,22 +44,20 @@ const ApplicationViews = () => {
            <Route exact path="/events/new" render={(props) => {
                 return <EventForm {...props} />
            }} />
-           <Route path="events/:eventId(\d+)/edit" render={props => {
-               return <EventEditForm {...props}/>
+           <Route exact path="/events/:eventId(\d+)/edit" render={(props) => {
+               return <EventEditForm {...props} />
            }}/>
               {/* Message */}
-              <Route
-            path="/messages"
-            render={props => {
-            return <MessageCard />;
-             }}
-            />
+             
            <Route exact path="/messages" render={props => {
                 return <MessageList {...props}/>
             }} />
-             <Route path="/messages/new" render={(props) => {
+             <Route exact path="/messages/new" render={(props) => {
                 return <MessageForm {...props} />
             }} />
+            <Route exact path="/messages/:messageId(\d+)/edit" render={(props) => {
+               return <MessageEditForm {...props} />
+           }}/>
            
            {/* News */}
            <Route exact 

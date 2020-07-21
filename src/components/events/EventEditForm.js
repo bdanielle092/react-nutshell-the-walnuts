@@ -19,9 +19,9 @@ const EventEditForm = props => {
     const editedEvent = {
       id: props.match.params.eventId,
       event: event.event,
-      event: event.date,
-      event: event.location,
-      event: event.description
+      date : event.date,
+      location: event.location,
+      description: event.description
     };
     EventManager.update(editedEvent)
     .then(() => props.history.push("/events"))
@@ -32,7 +32,7 @@ const EventEditForm = props => {
       setEvent(event);
       setIsLoading(false);
     })
-  }, [])
+  }, [props.match.params.eventId])
 
   return (
     <>

@@ -27,7 +27,9 @@ const MessageList = (props) => {
         <div className="container-card">
           {messages.map(message => <MessageCard
           key={message.id}
-          message={message}/>)}
+          message={message}
+          {...props} 
+          />)}
         </div>
         </>
     )

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./Event.css"
 
 const EventCard = props => {
-   
+ 
     return (
         <div className="card">
             <div className="card-content">
@@ -12,6 +12,7 @@ const EventCard = props => {
         </picture>
                 <h3>
        Event: <span className="card-eventName">{props.event.event}</span>
+       
             <p>{props.event.date}</p>
                 </h3>
                 <Link to={`/events/${props.event.id}`}>
