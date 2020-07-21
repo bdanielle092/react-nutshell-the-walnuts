@@ -4,6 +4,7 @@ import Home from "./home/Home";
 import NewsList from "./news/NewsList";
 import NewsDetail from "./news/NewsDetail";
 import NewsForm from './news/NewsForm';
+import NewsEditFrom from './news/NewsEditForm';
 import EventCard from "./events/EventCard";
 import MessageCard from "./messages/MessageCard";
 import FriendCard from "./friends/FriendCard";
@@ -24,20 +25,40 @@ const ApplicationViews = () => {
              render={props => {
             return <Login {...props} />
             }} /> */}
-            <Route exact path="/news"
-            render={(props) => {
-            return <NewsList {...props} />;
+
+
+            <Route exact path="/news" render={props => {
+                if (isAuthenticated()) {
+                    return <NewsList {...props} />
+                } else {
+                    return <Redirect to="/login" />
+                }
              }} />
-             <Route path="/news/new" 
+
+            <Route path="/news/new" 
              render={(props) => {
                 return <NewsForm {...props} />
              }} />
-             <Route path="/news/:newsId(\d+)" 
-             render={(props) => {
-                 return <NewsDetail 
-                 newsId={parseInt(props.match.params.newsId)} 
-                 {...props} />;
-             }} />
+
+            <Route path="/news/:newsId(\d+)edit" render={props => {
+                 if (isAuthenticated()) {
+                     return <NewsEditFrom {...props} />
+                 } else {
+                     return <Redirect to="/login" />
+                 }
+                 }} />
+             }}
+
+            <Route exact path="/news/:newsId(\d+)" render={props => {
+                 if (isAuthenticated()) {
+                     return <NewsDetail newsId={parseInt(props.match.params.newsId)} {...props} />
+                 } else {
+                     return <Redirect to="/login" />
+                    } 
+                 }} />
+
+
+
             <Route
              path="/events"
             render={props => {

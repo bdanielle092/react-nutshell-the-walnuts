@@ -34,6 +34,7 @@ const NewsList = (props) => {
                 key={news.id} 
                 news={news}
                 deleteNews={deleteNews} 
+                {...props}
                 />
             )}
         </div>

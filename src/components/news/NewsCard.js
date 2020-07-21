@@ -21,6 +21,10 @@ const NewsCard = props => {
                 <Link to={`/news/${props.news.id}`}>
                     <button>Details</button>
                 </Link>
+                <button type="button"
+                    onClick={() => props.history.push(`/news/${props.news.id}/edit`)}>
+                        Edit
+                    </button>
                 <button type="button" onClick={() => props.deleteNews(props.news.id)}>
                     Delete
                 </button>
