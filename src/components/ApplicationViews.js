@@ -7,7 +7,7 @@ import MessageForm from "./messages/MessageForm";
 import NewsList from "./news/NewsList";
 import NewsDetail from "./news/NewsDetail";
 import NewsForm from './news/NewsForm';
-import NewsEditFrom from './news/NewsEditForm';
+import NewsEditForm from './news/NewsEditForm';
 import EventList from "./events/EventList";
 import EventDetail from "./events/EventDetail";
 import EventForm from "./events/EventForm";
@@ -52,7 +52,25 @@ const ApplicationViews = () => {
             }}/>
             
             {/* News */}
-    
+            <Route exact path="/news"
+            render={(props) => {
+            return <NewsList {...props} />;
+             }} />
+             <Route path="/news/new" 
+             render={(props) => {
+                return <NewsForm {...props} />
+             }} />
+             <Route path="/news/:newsId(\d+)" 
+             render={(props) => {
+                 return <NewsDetail 
+                 newsId={parseInt(props.match.params.newsId)} 
+                 {...props} />;
+             }} />
+              <Route exact path="/newss/:news(\d+)/edit" 
+              render={(props) => {
+                return <NewsEditForm {...props} />
+            }}/>
+            
 
 
 
