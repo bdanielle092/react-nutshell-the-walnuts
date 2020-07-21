@@ -12,7 +12,6 @@ import EventList from "./events/EventList";
 import EventDetail from "./events/EventDetail";
 import EventForm from "./events/EventForm";
 import EventEditForm from "./events/EventEditForm";
-import Login from "./login/Login"
 import TaskList from "./tasks/TaskList";
 import FriendCard from "./friends/FriendCard";
 
@@ -26,15 +25,6 @@ const ApplicationViews = () => {
              return <Home />
              }}
              />
-             {/* <Route 
-             path="/login" 
-             render={props => {
-            return <Login {...props} />
-            }} /> */}
-
-
-         
-             {/* Event */}
         
             <Route exact path="/events" render={props => {
                 return <EventList {...props}/>
@@ -62,26 +52,7 @@ const ApplicationViews = () => {
             }}/>
             
             {/* News */}
-            <Route exact 
-            path="/news"
-            render={props => {
-            return <NewsList />;
-                }}
-                />
-                <Route
-                path="/news/:newsId(\d+)" 
-                render={(props) => {
-                return <NewsForm {...props} />
-                }} />
-
-            <Route path="/news/:newsId(\d+)edit" render={props => {
-                        return <NewsEditFrom {...props} />
-                    }} />
-                }}
-
-            <Route exact path="/news/:newsId(\d+)" render={props => {
-                        return <NewsDetail newsId={parseInt(props.match.params.newsId)} {...props} />
-                    }} />
+    
 
 
 
