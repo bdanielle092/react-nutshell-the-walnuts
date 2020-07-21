@@ -25,15 +25,15 @@ const NewsEditForm = props => {
              
             NewsManager.update(editedNews)
             .then(() => props.history.push("/news"))
-    };
+    }
 
     useEffect(() => {
         NewsManager.get(props.match.params.newsId)
         .then(news => {
             setNews(news);
             setIsLoading(false);
-        });
-    }, [props.match.params.newsId]);
+        })
+    }, [props.match.params.newsId])
 
     return (
         <>

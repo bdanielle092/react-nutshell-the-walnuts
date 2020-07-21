@@ -13,6 +13,8 @@ import EventDetail from "./events/EventDetail";
 import EventForm from "./events/EventForm";
 import EventEditForm from "./events/EventEditForm";
 import TaskList from "./tasks/TaskList";
+import TaskForm from "./tasks/TaskForm"
+import TaskEditForm from "./tasks/TaskEditForm"
 import FriendCard from "./friends/FriendCard";
 
 
@@ -70,15 +72,22 @@ const ApplicationViews = () => {
               render={(props) => {
                 return <NewsEditForm {...props} />
             }}/>
+
+            {/* Tasks */}
+
+            <Route path="/tasks/:taskId(\d+)/edit" render={props => {
+                return <TaskEditForm {...props} />
+            }} />
             
+            <Route path="/tasks/new" render={(props) => {
+                return <TaskForm {...props} />
+            }} />
 
-
-
-             {/* tasks */}
             <Route exact path="/tasks" render={props => {
-                return <TaskList {...props}  />;
-             }} />
-             {/* friends */}
+                return <TaskList {...props} />
+            }} />
+
+            
              <Route
             path="/friends"
             render={props => {

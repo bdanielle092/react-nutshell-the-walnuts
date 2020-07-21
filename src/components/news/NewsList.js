@@ -14,11 +14,11 @@ const NewsList = (props) => {
 
     const deleteNews = id => {
         NewsManager.delete(id)
-        .then(() => NewsManager.getAll().then(setNews));
+        .then(() => NewsManager.getAll().then(setNews))
     };
 
-    useEffect(() => {
-        getNews();
+    useEffect(( ) => {
+        getNews()
     }, []);
 
     return (
@@ -30,7 +30,7 @@ const NewsList = (props) => {
             Create News Article
         </button>
         </section>
-        <div className="news-cards">
+        <div className="container-cards">
             {news.map(news =>
             <NewsCard 
                 key={news.id} 

@@ -14,7 +14,7 @@ const NewsForm = props => {
 
     const constructNewNews = evt => {
         evt.preventDefault();
-        if (news.title === "" || news.description === "" || news.url === "" ) {
+        if (news.news === "" || news.title === "" || news.description === "" || news.url === "" ) {
         window.alert("Please input News Title, Description, and URL");
     } else {
         setIsLoading(true);

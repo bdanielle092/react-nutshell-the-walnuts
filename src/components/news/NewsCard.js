@@ -4,7 +4,7 @@ import "./News.css";
 
 const NewsCard = props => {
     return (
-        <div className="news-cards">
+        <div className="container-cards">
             <div className="card-content">
                 <picture>
                     <img src={require("./newsicon.png")} alt="News Icon" />
