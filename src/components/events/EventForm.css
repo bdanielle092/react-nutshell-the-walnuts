@@ -20,7 +20,7 @@ fieldset button {
     max-width: 9em;
     padding: .5em;
     margin: .3em auto;
-    background-color: cornflowerblue;
+    background-color:  #90be6d;
     border: none;
     color: cornsilk;
     text-align: center;
@@ -59,3 +59,6 @@ fieldset input, fieldset button, fieldset select {
 fieldset .alignRight {
     text-align: right;
 }
+fieldset button:hover {
+    background-color: navy;
+  }
