@@ -18,9 +18,7 @@ const EventForm = props => {
            window.alert("Please fill out input fields");
     } else {
         setIsLoading(true);
-
         EventManager.post(event)
-        
         .then(() => props.history.push("/events"));
     }
 };
