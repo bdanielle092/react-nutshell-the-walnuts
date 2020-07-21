@@ -7,7 +7,6 @@ export default {
     getAll() {
         return fetch(`${remoteURL}/messages`).then(result => result.json())
     },
-
     post(newMessage) {
         return fetch(`${remoteURL}/messages`, {
             method: "POST",
@@ -15,17 +14,7 @@ export default {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(newMessage)
-            
         }).then(data => data.json())
-    },
-    update(editedMessage) {
-        return fetch(`${remoteURL}/messages/${editedMessage.id}`, {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(editedMessage)
-        }).then(data => data.json());
-      }
+    }
 
 }

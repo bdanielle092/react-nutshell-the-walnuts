@@ -11,7 +11,7 @@ const EventCard = props => {
           <img src={require("./event.png")} alt="event logo" />
         </picture>
                 <h3>
-    Event: <span className="card-eventName">{props.event.event}</span>
+       Event: <span className="card-eventName">{props.event.event}</span>
             <p>{props.event.date}</p>
                 </h3>
                 <Link to={`/events/${props.event.id}`}>
