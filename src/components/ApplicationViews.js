@@ -7,7 +7,7 @@ import NewsForm from './news/NewsForm';
 import EventCard from "./events/EventCard";
 import MessageCard from "./messages/MessageCard";
 import FriendCard from "./friends/FriendCard";
-import Login from "./login/Login"
+import Login from "./login/Login";
 import TaskList from "./tasks/TaskList";
 
 const ApplicationViews = () => {
