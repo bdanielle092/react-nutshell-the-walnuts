@@ -6,12 +6,12 @@ import MessageEditForm from "./messages/MessageEditForm";
 import MessageForm from "./messages/MessageForm";
 import NewsList from "./news/NewsList";
 import NewsDetail from "./news/NewsDetail";
+import NewsForm from './news/NewsForm';
+import NewsEditForm from './news/NewsEditForm';
 import EventList from "./events/EventList";
 import EventDetail from "./events/EventDetail";
 import EventForm from "./events/EventForm";
 import EventEditForm from "./events/EventEditForm";
-import Login from "./login/Login"
-import TaskCard from "./tasks/TaskCard"
 import TaskList from "./tasks/TaskList";
 import TaskForm from "./tasks/TaskForm"
 import TaskEditForm from "./tasks/TaskEditForm"
@@ -21,20 +21,12 @@ import FriendCard from "./friends/FriendCard";
 const ApplicationViews = () => {
     return (
         <React.Fragment>
-            <Route
-             exact
+            <Route exact
              path="/"
              render= {props => {
              return <Home />
              }}
              />
-             {/* <Route 
-             path="/login" 
-             render={props => {
-            return <Login {...props} />
-            }} /> */}
-         
-             {/* Event */}
         
             <Route exact path="/events" render={props => {
                 return <EventList {...props}/>
@@ -54,28 +46,35 @@ const ApplicationViews = () => {
            <Route exact path="/messages" render={props => {
                 return <MessageList {...props}/>
             }} />
-             <Route exact path="/messages/new" render={(props) => {
-                return <MessageForm {...props} />
+            <Route exact path="/messages/new" render={(props) => {
+            return <MessageForm {...props} />
             }} />
             <Route exact path="/messages/:messageId(\d+)/edit" render={(props) => {
-               return <MessageEditForm {...props} />
-           }}/>
-           
-           {/* News */}
-           <Route exact 
-            path="/news"
-            render={props => {
-            return <NewsList />;
-             }}
-             />
-             <Route
-             path="/news/:newsId(\d+)" 
+                return <MessageEditForm {...props} />
+            }}/>
+            
+            {/* News */}
+            <Route exact path="/news"
+            render={(props) => {
+            return <NewsList {...props} />;
+             }} />
+
+             <Route exact path="/news/new" 
+             render={(props) => {
+                return <NewsForm {...props} />
+             }} />
+
+             <Route path="/news/:newsId(\d+)" 
              render={(props) => {
                  return <NewsDetail 
                  newsId={parseInt(props.match.params.newsId)} 
                  {...props} />;
              }} />
-           
+             
+              <Route exact path="/news/:newsId(\d+)/edit" 
+              render={(props) => {
+                return <NewsEditForm {...props} />
+            }}/>
 
             {/* Tasks */}
 
@@ -90,6 +89,8 @@ const ApplicationViews = () => {
             <Route exact path="/tasks" render={props => {
                 return <TaskList {...props} />
             }} />
+
+
              <Route
             path="/friends"
             render={props => {

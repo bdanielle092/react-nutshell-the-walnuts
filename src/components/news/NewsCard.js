@@ -4,7 +4,7 @@ import "./News.css";
 
 const NewsCard = props => {
     return (
-        <div className="news-cards">
+        <div className="container-cards">
             <div className="card-content">
                 <picture>
                     <img src={require("./newsicon.png")} alt="News Icon" />
@@ -21,6 +21,10 @@ const NewsCard = props => {
                 <Link to={`/news/${props.news.id}`}>
                     <button>Details</button>
                 </Link>
+                <button type="button"
+                    onClick={() => props.history.push(`/news/${props.news.id}/edit`)}>
+                        Edit
+                    </button>
                 <button type="button" onClick={() => props.deleteNews(props.news.id)}>
                     Delete
                 </button>
