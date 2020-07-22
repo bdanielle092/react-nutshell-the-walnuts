@@ -33,7 +33,7 @@ const NewsEditForm = props => {
             setNews(news);
             setIsLoading(false);
         })
-    }, [props.match.params.newsId])
+    }, [])
 
     return (
         <>
