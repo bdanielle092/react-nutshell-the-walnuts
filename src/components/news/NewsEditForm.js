@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import NewsManager from "../../modules/NewsManager";
-import "./NewsForm.css";
+
 
 const NewsEditForm = props => {
     const [news, setNews] = useState({ title:"", description:"", url:""});
@@ -33,7 +33,7 @@ const NewsEditForm = props => {
             setNews(news);
             setIsLoading(false);
         })
-    }, [])
+    }, [props.match.params.newsId])
 
     return (
         <>
